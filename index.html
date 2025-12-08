@@ -424,35 +424,55 @@
 
   <main class="page">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <div class="hero-badge">
-          ✨ Nature Escape · Private Cottage
-        </div>
-        <h1>Peaceful retreat with terrace, jacuzzi & forest views.</h1>
-        <p>
-          SYLVIE’S COTTAGE is a bright and cosy hideaway surrounded by
-          Mediterranean nature – perfect for slow mornings, long dinners on
-          the wooden deck and starry nights in the hot tub.
-        </p>
-        <div class="hero-cta">
-          <a href="#booking" class="btn-primary">Check availability</a>
-          <a href="#gallery" class="btn-outline">View full gallery</a>
-        </div>
-        <div class="hero-meta">
-          <span><strong>2–4 guests</strong>1 bedroom · 1 bathroom · sofa lounge</span>
-          <span><strong>Outdoor jacuzzi</strong>Private terrace with forest view</span>
-          <span><strong>Near Marseille</strong>Calm location above the valley</span>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="sylvie-hero.jpg" alt="SYLVIE’S COTTAGE exterior with terrace" />
-        <div class="hero-tag">
-          <strong>Hosts’ favourite stays</strong>
-          <small>Ideal for couples & remote workers</small>
-        </div>
-      </div>
-    </section>
+<section class="hero" style="
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('sylvie-hero.jpg') center/cover no-repeat;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  margin-top: 2rem;
+">
+
+  <div style="
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    color: white;
+    padding: 2.5rem;
+  ">
+    <div class="hero-badge" style="background: rgba(255,255,255,0.15); color:#fff;">
+      ✨ Nature Escape · Private Cottage
+    </div>
+
+    <h1 style="color:white;">
+      Peaceful retreat with terrace, jacuzzi & forest views.
+    </h1>
+
+    <p style="color:#f1f1f1;">
+      SYLVIE’S COTTAGE is a bright and cosy hideaway surrounded by Mediterranean
+      nature – perfect for slow mornings, wooden deck dinners and relaxing
+      nights in the outdoor spa.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#booking" class="btn-primary">Check availability</a>
+      <a href="#gallery" class="btn-outline" style="color:white; border-color:white;">
+        View gallery
+      </a>
+    </div>
+
+    <div class="hero-meta" style="color:#eee;">
+      <span><strong>2–4 guests</strong>1 bedroom · 1 bathroom</span>
+      <span><strong>Outdoor jacuzzi</strong>Private forest terrace</span>
+      <span><strong>Near Marseille</strong>Calm valley location</span>
+    </div>
+  </div>
+</section>
+
 
     <!-- ABOUT + AMENITIES -->
     <section id="about" class="section section-light">
@@ -618,3 +638,4 @@
   </main>
 </body>
 </html>
+
