@@ -4,40 +4,23 @@
   <meta charset="UTF-8" />
   <title>SYLVIE’S COTTAGE – Peaceful Nature Escape</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-
   <style>
-    :root {
-      --bg-main: #f9f4ec;
-      --bg-alt: #f3e5d2;
-      --text-main: #2c241d;
-      --text-muted: #6b5c4b;
-      --accent: #f4b37a;
-      --accent-dark: #d88b46;
-      --accent-soft: #fbe0c2;
-      --border-soft: #e3d3c0;
-      --radius-lg: 18px;
-      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
-
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: "Poppins", sans-serif;
-      color: var(--text-main);
-      background-color: var(--bg-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #24333b;
+      background: #f7f5f2;
       line-height: 1.6;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     img {
@@ -45,933 +28,593 @@
       display: block;
     }
 
-    /* ---------- Layout ---------- */
+    /* Layout */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(249, 244, 236, 0.96);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-      backdrop-filter: blur(12px);
+      z-index: 10;
+      background: rgba(247,245,242,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e3ddd4;
     }
 
     .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.5rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0.9rem 1.5rem;
     }
 
     .logo {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .nav-links {
       display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
       font-size: 0.9rem;
     }
 
     .nav-links a {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      transition: background 0.18s;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
     }
 
     .nav-links a:hover {
-      background: var(--accent-soft);
+      border-color: #c67d4c;
     }
 
-    main {
-      padding-top: 64px; /* space for fixed header */
-    }
-
-    section {
-      padding: 3.5rem 1.5rem;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    h2.section-title {
-      font-size: 1.9rem;
-      margin-bottom: 0.8rem;
-    }
-
-    p.section-subtitle {
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      max-width: 650px;
-    }
-
-    /* ---------- Buttons ---------- */
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
+    .btn-primary,
+    .btn-outline {
       border-radius: 999px;
-      font-weight: 500;
-      border: 2px solid transparent;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
       cursor: pointer;
-      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out,
-        background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s;
-      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #3a2714;
-      box-shadow: 0 14px 30px rgba(216, 139, 70, 0.4);
+      background: #c67d4c;
+      color: #fff;
+      border-color: #c67d4c;
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(216, 139, 70, 0.5);
+      background: #b56f3f;
     }
 
-    .btn-ghost {
+    .btn-outline {
       background: transparent;
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.8);
+      border-color: #c67d4c;
+      color: #c67d4c;
     }
 
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.12);
+    .btn-outline:hover {
+      background: #f3e1d4;
     }
 
-    /* ---------- Hero ---------- */
-
+    /* Hero */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.55)
-        ),
-        url("images/sylvie-hero.jpg") center/cover no-repeat;
-      color: white;
-      text-align: left;
-    }
-
-    .hero-inner {
-      max-width: 1120px;
-      padding: 2.5rem 1.5rem;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.7rem;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      padding: 2.5rem 0 2rem;
       align-items: center;
     }
 
     .hero-text h1 {
-      font-size: clamp(2.5rem, 4vw, 3.1rem);
-      margin-bottom: 0.9rem;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: #f1ebe3;
+      color: #7a6248;
+      margin-bottom: 0.75rem;
     }
 
     .hero-text p {
-      max-width: 520px;
-      margin-bottom: 1.4rem;
-      color: #f3f1ec;
+      max-width: 32rem;
+      margin-bottom: 1.1rem;
+      color: #5b6b73;
+      font-size: 0.98rem;
     }
 
-    .hero-badges {
+    .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.85rem;
-    }
-
-    .badge {
-      background: rgba(17, 10, 6, 0.35);
-      border-radius: 999px;
-      padding: 0.3rem 0.9rem;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(4px);
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
-    .hero-card {
-      background: rgba(249, 244, 236, 0.98);
-      border-radius: 1.4rem;
-      padding: 1.5rem 1.4rem;
-      color: var(--text-main);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-    }
-
-    .hero-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-card .meta-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-card .price {
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin: 0.3rem 0;
-    }
-
-    .hero-card small {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    .hero-card ul {
-      list-style: none;
+      gap: 1.5rem;
       margin-top: 1rem;
+      font-size: 0.88rem;
+      color: #6f7c83;
+    }
+
+    .hero-meta span strong {
+      display: block;
+      color: #24333b;
+      font-size: 0.98rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .hero-image {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(26, 33, 39, 0.23);
+      position: relative;
+      min-height: 260px;
+      background: #000;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-tag {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(12, 28, 20, 0.88);
+      color: #f6f3ec;
+      padding: 0.6rem 0.9rem;
+      border-radius: 0.9rem;
+      font-size: 0.8rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-tag strong {
+      display: block;
       font-size: 0.9rem;
     }
 
-    .hero-card ul li {
+    .hero-tag small {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    /* Sections */
+    .section {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9a7a57;
       margin-bottom: 0.35rem;
     }
 
-    /* ---------- About / Amenities ---------- */
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6a767d;
+      max-width: 30rem;
+    }
+
+    .section-light {
+      background: #fbf8f4;
+      border-radius: 1.4rem;
+      padding: 2rem 1.6rem 2.3rem;
+      margin-bottom: 1.8rem;
+    }
 
     .two-column {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2.7rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: start;
     }
 
     .pill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
     }
 
     .pill {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.85rem;
+      padding: 0.28rem 0.7rem;
       border-radius: 999px;
-      background: #efe1cf;
-      color: #5a4634;
+      background: #f0e5d8;
+      font-size: 0.78rem;
+      color: #715639;
     }
 
-    .soft-card {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.95rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .soft-card img {
-      border-radius: 14px;
-      margin-bottom: 0.9rem;
-    }
-
-    .soft-card h3 {
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-    }
-
-    .card-grid {
+    /* Features */
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
     }
 
-    .card {
+    .feature-card {
       background: #fff;
-      border-radius: var(--radius-lg);
+      border-radius: 1rem;
       padding: 1rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 25px rgba(34, 46, 56, 0.06);
       font-size: 0.9rem;
-      border: 1px solid var(--border-soft);
     }
 
-    .card-title {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
+    .feature-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
     }
 
-    /* ---------- Feature strip ---------- */
-
-    .feature-strip {
-      background: #20140e;
-      color: #f7f2ea;
-      padding: 3rem 1.5rem;
+    .feature-card p {
+      font-size: 0.86rem;
+      color: #6b757d;
     }
 
-    .feature-inner {
-      max-width: 1120px;
-      margin: 0 auto;
+    /* Gallery */
+    .gallery-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 2.2rem;
-      align-items: center;
-    }
-
-    .feature-inner h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .feature-inner p {
-      color: #e2d3c4;
-      margin-bottom: 1rem;
-    }
-
-    .feature-tag {
-      display: inline-block;
-      font-size: 0.8rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(244, 179, 122, 0.16);
-      border: 1px solid rgba(244, 179, 122, 0.55);
-      margin-bottom: 0.8rem;
-    }
-
-    .feature-inner img {
-      border-radius: 20px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
-    }
-
-    /* ---------- Gallery ---------- */
-
-    .gallery-scroll {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding-bottom: 0.6rem;
-      scroll-snap-type: x mandatory;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
     }
 
     .gallery-item {
-      min-width: 260px;
-      max-width: 340px;
-      flex: 0 0 auto;
       border-radius: 1.1rem;
       overflow: hidden;
-      scroll-snap-align: start;
-      background: #ddd;
+      box-shadow: 0 10px 25px rgba(33, 40, 46, 0.12);
+      background: #000;
       position: relative;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .gallery-item span {
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-label {
       position: absolute;
+      left: 0.7rem;
       bottom: 0.6rem;
-      left: 0.6rem;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.7rem;
+      padding: 0.35rem 0.7rem;
       border-radius: 999px;
+      background: rgba(13, 27, 17, 0.72);
+      color: #f8f4ef;
+      font-size: 0.78rem;
     }
 
-    /* ---------- Location ---------- */
-
-    .map-frame {
+    /* Map */
+    .map-wrapper {
       border-radius: 1.2rem;
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 12px 30px rgba(31, 43, 57, 0.2);
       margin-top: 1rem;
-      background: #ddd;
     }
 
-    .map-frame iframe {
+    .map-wrapper iframe {
+      width: 100%;
+      height: 380px;
       border: 0;
-      width: 100%;
-      height: 300px;
     }
 
-    /* ---------- Pricing ---------- */
-
-    .pricing-box {
-      background: #fff;
-      border-radius: 1.3rem;
-      padding: 1.7rem;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.6rem;
-      align-items: center;
-      border: 1px solid var(--border-soft);
-    }
-
-    .pricing-main .big-price {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .pricing-main small {
-      color: var(--text-muted);
-    }
-
-    .pricing-list {
-      font-size: 0.9rem;
-      list-style: none;
+    .map-cta {
       margin-top: 0.9rem;
-    }
-
-    .pricing-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    /* ---------- Reviews ---------- */
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .review-card {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
-      font-size: 0.9rem;
-      border: 1px solid var(--border-soft);
-    }
-
-    .review-name {
-      font-weight: 600;
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      color: #464036;
-    }
-
-    .stars {
-      color: var(--accent);
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    /* ---------- Contact ---------- */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .contact-info p {
-      margin-bottom: 0.4rem;
       font-size: 0.9rem;
     }
 
-    .contact-info strong {
-      display: inline-block;
-      width: 80px;
+    .map-cta a {
+      color: #c67d4c;
+      text-decoration: underline;
     }
 
-    form {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
+    /* CTA */
+    .bottom-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid #e4ddd3;
+      font-size: 0.92rem;
     }
 
-    .form-row {
-      margin-bottom: 0.8rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.85rem;
-      margin-bottom: 0.25rem;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.6rem 0.7rem;
-      border-radius: 0.6rem;
-      border: 1px solid #d8c8b3;
-      font: inherit;
-      background: #fdfaf6;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 2px solid var(--accent-soft);
-      border-color: var(--accent-dark);
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
+    .bottom-cta span {
+      color: #6a767d;
     }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-size: 0.78rem;
+      color: #8a949b;
+      margin-top: 1.5rem;
     }
 
-    /* ---------- Responsive ---------- */
-
-    @media (max-width: 900px) {
-      .hero-inner,
-      .two-column,
-      .pricing-box,
-      .contact-grid,
-      .feature-inner {
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero,
+      .two-column {
         grid-template-columns: minmax(0, 1fr);
       }
 
       .hero {
-        text-align: center;
+        padding-top: 1.6rem;
       }
 
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
+      header {
+        position: static;
       }
 
-      .hero-badges,
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-card {
-        max-width: 360px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 650px) {
-      header .nav {
-        padding-inline: 1rem;
-      }
-
-      section {
-        padding-inline: 1rem;
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.8rem;
       }
 
       .nav-links {
-        display: none; /* keep it simple on mobile */
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 0 1rem 3rem;
       }
 
-      .hero-inner {
-        padding-inline: 1.3rem;
+      .hero {
+        gap: 1.4rem;
+      }
+
+      .section-light {
+        padding: 1.5rem 1.1rem 1.9rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
     }
   </style>
 </head>
-
 <body>
-  <!-- Header -->
   <header>
-    <div class="nav">
+    <div class="nav page">
       <div class="logo">SYLVIE’S COTTAGE</div>
-      <nav class="nav-links">
+      <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#amenities">Amenities</a>
-        <a href="#gallery">Photos</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#gallery">Gallery</a>
         <a href="#location">Location</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <a href="#booking" class="btn-outline">Request Dates</a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1>SYLVIE’S COTTAGE</h1>
-          <p>
-            A cosy cottage surrounded by trees, with a large wooden terrace and
-            private jacuzzi. Perfect for quiet stays, romantic weekends, or
-            remote work in nature.
-          </p>
-
-          <div class="hero-badges">
-            <div class="badge">Entire cottage • Private</div>
-            <div class="badge">Sleeps 2–4 guests</div>
-            <div class="badge">Jacuzzi on the terrace</div>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Book Sylvie’s Cottage</a>
-            <a href="#gallery" class="btn btn-ghost">View Photos</a>
-          </div>
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">
+          ✨ Nature Escape · Private Cottage
         </div>
-
-        <aside class="hero-card" aria-label="Booking summary">
-          <h3>Your stay at Sylvie’s Cottage</h3>
-          <div class="meta-row">
-            <span>🌲 Hill-side retreat</span>
-            <span>⭐ 4.9 (32 reviews)</span>
-          </div>
-          <p class="price">€140 <small>/ night</small></p>
-          <small>Example price – change to your real rate.</small>
-          <ul>
-            <li>🛏️ 1 bedroom • sofa in living room</li>
-            <li>🛁 Elegant bathroom with bathtub</li>
-            <li>💦 Private jacuzzi on the terrace</li>
-            <li>🌳 Wooden deck surrounded by trees</li>
-          </ul>
-        </aside>
+        <h1>Peaceful retreat with terrace, jacuzzi & forest views.</h1>
+        <p>
+          SYLVIE’S COTTAGE is a bright and cosy hideaway surrounded by
+          Mediterranean nature – perfect for slow mornings, long dinners on
+          the wooden deck and starry nights in the hot tub.
+        </p>
+        <div class="hero-cta">
+          <a href="#booking" class="btn-primary">Check availability</a>
+          <a href="#gallery" class="btn-outline">View full gallery</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>2–4 guests</strong>1 bedroom · 1 bathroom · sofa lounge</span>
+          <span><strong>Outdoor jacuzzi</strong>Private terrace with forest view</span>
+          <span><strong>Near Marseille</strong>Calm location above the valley</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="sylvie-hero.jpg" alt="SYLVIE’S COTTAGE exterior with terrace" />
+        <div class="hero-tag">
+          <strong>Hosts’ favourite stays</strong>
+          <small>Ideal for couples & remote workers</small>
+        </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container two-column">
+    <!-- ABOUT + AMENITIES -->
+    <section id="about" class="section section-light">
+      <div class="two-column">
         <div>
-          <h2 class="section-title">About Sylvie’s Cottage</h2>
-          <p class="section-subtitle">
-            Sunlight, soft colours and natural textures make Sylvie’s Cottage a calm,
-            welcoming place to slow down. Large glass doors open directly onto the terrace,
-            so you are always connected to the trees outside.
+          <div class="section-header">
+            <div class="eyebrow">About the cottage</div>
+            <h2 class="section-title">Light-filled interiors, connected to nature.</h2>
+            <p class="section-subtitle">
+              Large glass doors open directly onto the wooden deck, bringing the forest
+              indoors. The living room, bedroom and kitchen have been carefully styled
+              with soft tones, natural wood and warm lighting.
+            </p>
+          </div>
+          <p style="font-size:0.94rem; color:#5b6b73;">
+            Wake up to trees outside your window, enjoy coffee on the terrace and end
+            the day in the outdoor jacuzzi overlooking the valley. SYLVIE’S COTTAGE
+            is designed for guests who love calm, design and a touch of luxury in nature.
           </p>
-          <p>
-            Wake up late, have breakfast in the dining room, read on the sofa, then end the day
-            with a warm bath or a sunset session in the jacuzzi. The cottage is ideal for couples
-            or small families who want comfort, privacy and nature in one place.
-          </p>
-
           <div class="pill-list">
-            <span class="pill">Bright & modern interior</span>
-            <span class="pill">Large wooden terrace</span>
-            <span class="pill">Private jacuzzi</span>
-            <span class="pill">Nature all around</span>
+            <span class="pill">High-speed Wi-Fi</span>
+            <span class="pill">Fully equipped kitchen</span>
+            <span class="pill">Hotel-quality bed linen</span>
+            <span class="pill">Free parking</span>
           </div>
         </div>
-
-        <div class="soft-card">
-          <img
-            src="images/sylvie-living-room.jpg"
-            alt="Living room of Sylvie’s Cottage with large windows"
-          />
-          <h3>Light-filled living room</h3>
-          <p>
-            The living space opens fully to the terrace, bringing the forest views inside.
-            Curl up on the sofa with a book or enjoy a quiet movie night.
-          </p>
+        <div>
+          <div class="section-header" id="highlights">
+            <div class="eyebrow">Highlights</div>
+            <h2 class="section-title">What guests love here</h2>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3>Outdoor jacuzzi</h3>
+              <p>Private hot tub nestled between trees – unforgettable at sunset and under the stars.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Large wooden terrace</h3>
+              <p>Spacious deck with dining table and lounge chairs, perfect for long meals outside.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Design details</h3>
+              <p>Thoughtful interior styling, cosy lighting and artwork that make the cottage feel unique.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Calm forest setting</h3>
+              <p>Located above the valley with greenery all around, yet a short drive from everyday needs.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Dining Highlight (new image) -->
-    <section>
-      <div class="container two-column">
-        <div class="soft-card">
-          <img
-            src="images/sylvie-dining-room.jpg"
-            alt="Dining room at Sylvie’s Cottage with round table and green cabinet"
-          />
-          <h3>Warm dining corner</h3>
-          <p>
-            A cosy dining area with vintage touches, wooden chairs and soft light.
-            Perfect for long breakfasts, home-cooked dinners or working on your laptop.
-          </p>
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="section-header">
+        <div class="eyebrow">Photo gallery</div>
+        <h2 class="section-title">Discover every corner of SYLVIE’S COTTAGE.</h2>
+        <p class="section-subtitle">
+          Scroll through the spaces guests will enjoy – from outdoor jacuzzi to bedroom, bathroom and kitchen.
+        </p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="sylvie-deck-long.jpg" alt="Long wooden terrace surrounded by trees" />
+          <div class="gallery-label">Terrace & forest view</div>
         </div>
-        <div>
-          <h2 class="section-title">Eat, talk & relax</h2>
+        <div class="gallery-item">
+          <img src="sylvie-jacuzzi.jpg" alt="Outdoor jacuzzi on the deck" />
+          <div class="gallery-label">Outdoor jacuzzi</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-living-room.jpg" alt="Bright living room with large windows" />
+          <div class="gallery-label">Living room</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-living-dining.jpg" alt="Dining area view to living space" />
+          <div class="gallery-label">Dining nook</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-bedroom.jpg" alt="Bedroom with green accent wall and framed art" />
+          <div class="gallery-label">Bedroom</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-bathroom.jpg" alt="Bathroom with freestanding tub and dark tiles" />
+          <div class="gallery-label">Bathroom</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-kitchen.jpg" alt="Fully equipped bright kitchen" />
+          <div class="gallery-label">Kitchen</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-terrace-chairs.jpg" alt="Lounge chairs on terrace" />
+          <div class="gallery-label">Lounge corner</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-terrace-tree.jpg" alt="Table under tree on terrace" />
+          <div class="gallery-label">Dining under the trees</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sylvie-dining-room.jpeg" alt="Dining table near window with green sideboard" />
+          <div class="gallery-label">Green cabinet & dining</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION / MAP -->
+    <section id="location" class="section section-light">
+      <div class="section-header">
+        <div class="eyebrow">Location</div>
+        <h2 class="section-title">Hidden in nature, easy to reach.</h2>
+        <p class="section-subtitle">
+          SYLVIE’S COTTAGE is nestled in the hills near Marseille, surrounded by trees with a beautiful valley view.
+        </p>
+      </div>
+
+      <div class="map-wrapper">
+        <iframe
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=43.3406592,5.6198854&z=14&output=embed">
+        </iframe>
+      </div>
+
+      <p class="map-cta">
+        Prefer opening in the Maps app?
+        <a href="https://maps.app.goo.gl/ByjLtQzPLtvBEwcS8?g_st=ipc" target="_blank" rel="noopener">
+          Open SYLVIE’S COTTAGE on Google Maps
+        </a>
+      </p>
+    </section>
+
+    <!-- BOOKING CTA -->
+    <section id="booking" class="section">
+      <div class="section-light">
+        <div class="section-header">
+          <div class="eyebrow">Booking</div>
+          <h2 class="section-title">Ready to plan your stay?</h2>
           <p class="section-subtitle">
-            The dining room connects the kitchen, living room and terrace, so everyone
-            can be together whether cooking, chatting or enjoying the view.
-          </p>
-          <p>
-            Open the doors to let in fresh air, set the table with local ingredients,
-            and enjoy slow meals that feel far away from the city.
+            Share your preferred dates, number of guests and any special requests. We’ll reply quickly with
+            availability and a personalised quote.
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- Amenities -->
-    <section id="amenities">
-      <div class="container">
-        <h2 class="section-title">Amenities</h2>
-        <p class="section-subtitle">
-          Everything prepared for a comfortable and memorable stay at Sylvie’s Cottage.
-        </p>
-
-        <div class="card-grid">
-          <div class="card">
-            <div class="card-title">🍳 Kitchen</div>
-            <p>Fully equipped kitchen with oven, stove, fridge, coffee machine and dishes.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">🛏️ Bedroom</div>
-            <p>Comfortable double bed, soft linens and warm lighting.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">🛁 Bathroom</div>
-            <p>Beautiful bathtub, modern sink and quality towels.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">💦 Jacuzzi</div>
-            <p>Private outdoor jacuzzi on the terrace with nature views.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">📶 Internet</div>
-            <p>Wi-Fi for remote work, calls and streaming.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">🌲 Outdoor Space</div>
-            <p>Wooden deck with tables and chairs, surrounded by trees.</p>
+        <div class="bottom-cta">
+          <span>
+            Send a simple message with your dates and we’ll keep the calendar updated across
+            Airbnb and direct bookings.
+          </span>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <a href="mailto:your-email@example.com?subject=Stay%20at%20SYLVIE%E2%80%99S%20COTTAGE"
+               class="btn-primary">
+              Email booking request
+            </a>
+            <a href="#top" class="btn-outline">Back to top</a>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Jacuzzi Feature Strip -->
-    <section class="feature-strip">
-      <div class="feature-inner">
-        <div>
-          <div class="feature-tag">Jacuzzi with a view</div>
-          <h2>Soak under the trees</h2>
-          <p>
-            Step out onto the terrace and sink into the warm jacuzzi. Listen to the
-            wind in the leaves, watch the hills in the distance and stay as long as you like.
-          </p>
-          <p>
-            Whether it’s a cool evening or a sunny afternoon, the jacuzzi is the heart
-            of Sylvie’s Cottage – a private spa corner just for you.
-          </p>
-        </div>
-        <div>
-          <img src="images/sylvie-jacuzzi.jpg" alt="Jacuzzi on the terrace at Sylvie’s Cottage" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery">
-      <div class="container">
-        <h2 class="section-title">Photo Gallery</h2>
-        <p class="section-subtitle">
-          Scroll to see the terrace, jacuzzi, bedroom, bathroom, kitchen and living spaces
-          at Sylvie’s Cottage.
-        </p>
-
-        <div class="gallery-scroll">
-          <div class="gallery-item">
-            <img src="images/sylvie-deck-long.jpg" alt="Long wooden deck surrounded by trees" />
-            <span>Wooden Deck</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-terrace-chairs.jpg" alt="Terrace seating area" />
-            <span>Terrace Seating</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-terrace-tree.jpg" alt="Table under a tree on the terrace" />
-            <span>Dining Under the Trees</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-bedroom.jpg" alt="Bedroom at Sylvie’s Cottage" />
-            <span>Bedroom</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-bathroom.jpg" alt="Bathroom with bathtub at Sylvie’s Cottage" />
-            <span>Bathroom</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-kitchen.jpg" alt="Kitchen at Sylvie’s Cottage" />
-            <span>Kitchen</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-living-dining.jpg" alt="Living room looking out to terrace" />
-            <span>Living Room</span>
-          </div>
-          <div class="gallery-item">
-            <img src="images/sylvie-dining-room.jpg" alt="Dining room at Sylvie’s Cottage" />
-            <span>Dining Corner</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Location -->
-    <section id="location">
-      <div class="container">
-        <h2 class="section-title">Location</h2>
-        <p class="section-subtitle">
-          Sylvie’s Cottage is nestled on a quiet hillside, surrounded by trees and nature.
-          The exact address is shared after booking.
-        </p>
-
-        <div class="map-frame">
-          <!-- Replace src with your real Google Maps embed link -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb="
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Sylvie’s Cottage location"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing">
-      <div class="container">
-        <h2 class="section-title">Pricing & Stay Details</h2>
-        <p class="section-subtitle">
-          Adjust these values to match the real price and rules for Sylvie’s Cottage.
-        </p>
-
-        <div class="pricing-box">
-          <div class="pricing-main">
-            <div class="big-price">€140 / night</div>
-            <small>(Example price – edit to your real rate)</small>
-
-            <ul class="pricing-list">
-              <li>✅ Minimum stay: 2 nights</li>
-              <li>✅ Cleaning fee: €40 per stay</li>
-              <li>✅ Discount for 7+ nights: 10%</li>
-              <li>✅ Check-in: after 3 PM</li>
-              <li>✅ Check-out: before 11 AM</li>
-            </ul>
-          </div>
-
-          <div>
-            <p>
-              For longer stays, special occasions or photo shoots, please contact us directly.
-              We’re happy to create a custom offer for you.
-            </p>
-            <br />
-            <a href="#contact" class="btn btn-primary">Ask for Availability</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews">
-      <div class="container">
-        <h2 class="section-title">Guest Reviews</h2>
-        <p class="section-subtitle">
-          Replace these sample reviews with real comments from guests staying at Sylvie’s Cottage.
-        </p>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>
-              “The terrace and jacuzzi were incredible. Quiet, clean and stylish – exactly what we
-              needed to relax.”
-            </p>
-            <div class="review-name">— Anna & Marc</div>
-          </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>
-              “Waking up to the trees and light in the living room was magical. We loved cooking
-              in the kitchen too.”
-            </p>
-            <div class="review-name">— Elise</div>
-          </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★☆</div>
-            <p>
-              “Beautiful cottage, very comfortable bed and a great bathtub. Perfect weekend
-              escape from the city.”
-            </p>
-            <div class="review-name">— Thomas</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact & Booking</h2>
-        <p class="section-subtitle">
-          Send a message to check available dates or confirm your booking at Sylvie’s Cottage.
-        </p>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <p><strong>Phone:</strong> +33-6-00-00-00-00</p>
-            <p><strong>WhatsApp:</strong> +33-6-00-00-00-00</p>
-            <p><strong>Email:</strong> contact@sylviescottage.com</p>
-            <p><strong>Area:</strong> Hillside countryside, France (example)</p>
-            <br />
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              Tip: link the WhatsApp number as
-              <code>https://wa.me/yourNumber</code> or add your Airbnb / Booking.com listing link here.
-            </p>
-          </div>
-
-          <form>
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" type="text" placeholder="Your name" />
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" />
-            </div>
-
-            <div class="form-row">
-              <label for="dates">Dates</label>
-              <input
-                id="dates"
-                type="text"
-                placeholder="Example: 12–15 July, 2 adults"
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                placeholder="Please write your questions or booking details here..."
-              ></textarea>
-            </div>
-
-            <button class="btn btn-primary" type="submit">
-              Send Request
-            </button>
-          </form>
-        </div>
-      </div>
+      <footer>
+        © SYLVIE’S COTTAGE · Crafted for peaceful nature escapes.
+      </footer>
     </section>
   </main>
-
-  <footer>
-    © <span id="year"></span> SYLVIE’S COTTAGE – All rights reserved
-  </footer>
-
-  <script>
-    // Simple script to keep the footer year up to date
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
